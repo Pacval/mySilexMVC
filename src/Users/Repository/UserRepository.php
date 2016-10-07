@@ -42,7 +42,7 @@ class UserRepository
        $statement = $queryBuilder->execute();
        $usersData = $statement->fetchAll();
        foreach ($usersData as $userData) {
-           $userEntityList[$userData['id']] = new User($userData['id'], $userData['nom'], $userData['prenom'], $userData['age'], $userData['ville']);
+           $userEntityList[$userData['id']] = new User($userData['sexe'], $userData['id'], $userData['nom'], $userData['prenom'], $userData['age'], $userData['ville']);
        }
 
        return $userEntityList;
@@ -67,7 +67,7 @@ class UserRepository
        $statement = $queryBuilder->execute();
        $userData = $statement->fetchAll();
 
-       return new User($userData[0]['id'], $userData[0]['nom'], $userData[0]['prenom'], $userData[0]['age'], $userData[0]['ville']);
+       return new User($userData[0]['sexe'], $userData[0]['id'], $userData[0]['nom'], $userData[0]['prenom'], $userData[0]['age'], $userData[0]['ville']);
    }
 
     public function delete($id)
@@ -120,19 +120,21 @@ class UserRepository
     {
         $queryBuilder = $this->db->createQueryBuilder();
         $queryBuilder
-          ->insert('users')
-          ->values(
-              array(
-                'nom' => ':nom',
-                'prenom' => ':prenom',
-                'age' => ':age',
-                'ville' => ':ville',
+            ->insert('users')
+            ->values(
+            array(
+                  'sexe' => ':sexe',
+                  'nom' => ':nom',
+                  'prenom' => ':prenom',
+                  'age' => ':age',
+                  'ville' => ':ville',
               )
-          )
-          ->setParameter(':nom', $parameters['nom'])
-          ->setParameter(':prenom', $parameters['prenom'])
-          ->setParameter(':age', $parameters['age'])
-          ->setParameter(':ville', $parameters['ville']);
+        )
+            ->setParameter(':sexe', $parameters['sexe'])
+            ->setParameter(':nom', $parameters['nom'])
+            ->setParameter(':prenom', $parameters['prenom'])
+            ->setParameter(':age', $parameters['age'])
+            ->setParameter(':ville', $parameters['ville']);
         $statement = $queryBuilder->execute();
     }
 }

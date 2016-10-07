@@ -4,6 +4,8 @@ namespace App\Users\Entity;
 
 class User
 {
+    protected $sexe;
+    
     protected $id;
 
     protected $nom;
@@ -15,8 +17,9 @@ class User
     protected $ville;
 
     // Constructeur
-    public function __construct($id, $nom, $prenom, $age, $ville)
+    public function __construct($sexe, $id, $nom, $prenom, $age, $ville)
     {
+        $this->sexe = $sexe;
         $this->id = $id;
         $this->prenom = $prenom;
         $this->nom = $nom;
@@ -53,6 +56,10 @@ class User
 
 
     // Getter
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
     public function getId()
     {
         return $this->id;
@@ -77,6 +84,7 @@ class User
     public function toArray()
     {
         $array = array();
+        $array['sexe'] = $this->sexe;
         $array['id'] = $this->id;
         $array['nom'] = $this->nom;
         $array['prenom'] = $this->prenom;

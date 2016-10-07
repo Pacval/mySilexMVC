@@ -6,6 +6,7 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>SEXE</th>
             <th>NOM</th>
             <th>PRENOM</th>
             <th>AGE</th>
@@ -16,6 +17,7 @@
     <tbdoy> {% for user in users %}
         <tr>
             <td>{{user.id}}</td>
+            <td>{{user.sexe}}</td>
             <td>{{user.nom}}</td>
             <td>{{user.prenom}}</td>
             <td>{{user.age}}</td>
@@ -32,3 +34,7 @@
             </td>
         </tr> {% endfor %} </tbdoy>
 </table>
+
+<br><br>
+
+<div>La requête de création de la base de données se situe dans le fichier README.txt</div>

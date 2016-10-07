@@ -2,15 +2,7 @@
 <form method="post" name="formulaire" action="{{ url('users.save', {id: user.id}) }}">
     <input type="hidden" name="id" value={{user.id}} />
     
-<!--
-    <div style="margin-bottom: 10px">
-        Sexe :
-        <input type="radio" name="sexe" id="M" value="M" checked>
-        <label for="M">M</label>
-        <input type="radio" name="sexe" id="F" value="F">
-        <label for="F">F</label>
-    </div>
--->
+    <div style="margin-bottom: 10px">Sexe : {{user.sexe}}</div>
     
     <div style="margin-bottom: 10px">
         <label for="nom">Nom : </label>
@@ -31,7 +23,6 @@
     {% else %}
     <form method="post" name="formulaire" action="{{ url('users.save') }}">
         
-<!--
         <div style="margin-bottom: 10px">
         Sexe :
             <input type="radio" name="sexe" id="M" value="M">
@@ -39,7 +30,6 @@
             <input type="radio" name="sexe" id="F" value="F">
             <label for="F">F</label>
         </div>
--->
         
         <div style="margin-bottom: 10px">
             <label for="nom">Nom : </label>
