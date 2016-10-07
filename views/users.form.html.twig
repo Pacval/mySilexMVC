@@ -1,0 +1,64 @@
+<h2>Formulaire</h2> {% if user is defined %}
+<form method="post" name="formulaire" action="{{ url('users.save', {id: user.id}) }}">
+    <input type="hidden" name="id" value={{user.id}} />
+    
+<!--
+    <div style="margin-bottom: 10px">
+        Sexe :
+        <input type="radio" name="sexe" id="M" value="M" checked>
+        <label for="M">M</label>
+        <input type="radio" name="sexe" id="F" value="F">
+        <label for="F">F</label>
+    </div>
+-->
+    
+    <div style="margin-bottom: 10px">
+        <label for="nom">Nom : </label>
+        <input type="text" name="nom" value={{user.nom}} /> </div>
+    
+    <div style="margin-bottom: 10px">
+        <label for="prenom">Prénom : </label>
+        <input type="text" name="prenom" value={{user.prenom}} /> </div>
+    
+    <div style="margin-bottom: 10px">
+        <label for="age">Age : </label>
+        <input type="text" name="age" value={{user.age}} /> </div>
+    
+    <div style="margin-bottom: 10px">
+        <label for="ville">Ville : </label>
+        <input type="text" name="ville" value={{user.ville}} /> </div> 
+    
+    {% else %}
+    <form method="post" name="formulaire" action="{{ url('users.save') }}">
+        
+<!--
+        <div style="margin-bottom: 10px">
+        Sexe :
+            <input type="radio" name="sexe" id="M" value="M">
+            <label for="M">M</label>
+            <input type="radio" name="sexe" id="F" value="F">
+            <label for="F">F</label>
+        </div>
+-->
+        
+        <div style="margin-bottom: 10px">
+            <label for="nom">Nom : </label>
+            <input type="text" name="nom" /> </div>
+        
+        <div style="margin-bottom: 10px">
+            <label for="prenom">Prénom : </label>
+            <input type="text" name="prenom" /> </div>
+        
+        <div style="margin-bottom: 10px">
+            <label for="age">Age : </label>
+            <input type="text" name="age" /> </div>
+        
+        <div style="margin-bottom: 10px">
+            <label for="ville">Ville : </label>
+            <input type="text" name="ville" /> </div>
+        
+        {% endif %}
+        <button type="submit">Envoyer</button>
+    </form>
+    
+    
